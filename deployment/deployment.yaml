@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bloodbank-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bloodbank
+  template:
+    metadata:
+      labels:
+        app: bloodbank
+    spec:
+      containers:
+      - name: backend
+        image: bloodbank-backend:latest
+        ports:
+        - containerPort: 3000
